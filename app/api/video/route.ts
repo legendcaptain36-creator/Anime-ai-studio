@@ -77,7 +77,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ status: "COMPLETED", videoUrl });
     }
 
-    if (status.status === "FAILED") {
+    if ((status.status as string) === "FAILED") {
       return NextResponse.json({ status: "FAILED", error: "Video generation failed. Please try a shorter or different prompt." });
     }
 
